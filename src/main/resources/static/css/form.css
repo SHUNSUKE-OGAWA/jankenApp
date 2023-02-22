@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+body {
+	background-color: #fffaf0;
+}
+
+h1 {
+	margin-top: 120px;
+}
+
+h1, h2, form .selecter, form .formbutton{
+	text-align: center;
+}
+
+form .btn{
+	font-size: 19px;
+	display: inline-block;
+	vertical-align: middle;
+	margin: 50px;
+	padding: 10px 30px;
+	color: #F15A24;
+	font-weight: bold;
+	letter-spacing: 0.5pt;
+	text-decoration: none;
+	background-color: #fffaf0;
+	border: 1px solid #F15A24;
+	cursor: pointer;
+	transition-duration:0.3s;
+    -webkit-transition-duration:0.3s;
+    -moz-transition-duration:0.3s;
+    -o-transition-duration:0.3s;
+    -ms-transition-duration:0.3s;
+} 
+form .btn:hover{
+    color: #ffffff;
+    background-color: #F15A24;
+}
+
+/* ラジオボタンの○を消す */
+input[type="radio"] {
+    display: none;
+}
+/* 画像の周りに隙間をあける */
+label img {
+    margin: 3px;
+    padding: 5px;
+}
+/* 未選択の場合、色を薄くする */
+input[type="radio"] + label img{
+    opacity:0.2;
+  }
+/* 選択済みの場合、色を濃くする */
+input[type="radio"]:checked + label img {
+    opacity:1;
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title th:text="${title}"></title>
+<link th:href="@{/css/result.css}" rel="stylesheet">
+</head>
+<body>
+<div class="Hand">
+	<div class="myHand">
+		<p th:text="${myHand}" class="myHandText"></p>
+		<th:block th:if="${myHandNum == 0}">
+		  <img th:src="@{/images/グー.png}">
+		</th:block>
+		<th:block th:if="${myHandNum == 1}">
+		  <img th:src="@{/images/チョキ.png}">
+		</th:block>
+		<th:block th:if="${myHandNum == 2}">
+		  <img th:src="@{/images/パー.png}">
+		</th:block>
+	</div>
+	<div class="opponentHand">
+		<p th:text="${opponentHand}" class="opponentHandText"></p>
+		<th:block th:if="${opponentHandNum == 0}">
+		  <img th:src="@{/images/グー.png}">
+		</th:block>
+		<th:block th:if="${opponentHandNum == 1}">
+		  <img th:src="@{/images/チョキ.png}">
+		</th:block>
+		<th:block th:if="${opponentHandNum == 2}">
+		  <img th:src="@{/images/パー.png}">
+		</th:block>
+	</div>
+</div>
+<div class="judge">
+	<p th:text="${judge}"></p>
+</div>
+
+<div class="content">
+	<th:block th:if="${judgeNum == 0}">
+		<p th:text="${date}"></p>
+		<p>の運勢は中吉！</p><br>
+		<p>がんばっていれば運勢は上がっていくから今日も1日がんばろう！</p>
+	</th:block>
+	<th:block th:if="${judgeNum == 1}">
+		<p th:text="${date}"></p>
+		<p>の運勢は大吉！</p><br>
+		<p>運勢最高の1日になりそう！何事にも自信を持って取り組もう！</p>
+	</th:block>
+	<th:block th:if="${judgeNum == 2}">
+		<p th:text="${date}"></p>
+		<p>の運勢は末吉！</p><br>
+		<p>運勢はあまり良くないけど自分のがんばり次第でいい日になりそう！</p>
+	</th:block>
+</div>
+<form method="post" th:action="@{/janken/start}">
+	<button type="submit" class="btn">はじめから</button>
+</form>
+
+</body>
+</html>

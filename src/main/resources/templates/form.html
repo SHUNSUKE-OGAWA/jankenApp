@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title th:text="${title}">JankenGame!</title>
+<link th:href="@{/css/form.css}" rel="stylesheet">
+</head>
+<body>
+<h1 th:text="${title}"></h1>
+<h2>さいしょはグーじゃんけん、、、</h2>
+<form method="POST" th:action="@{/janken/result}" th:object="${jankenForm}">
+
+	<div class="selecter">
+	<input id="gu-" type="radio" name="selectedHand" value="0" th:checked="*{selectedHand == 0}">
+	<label for="gu-" class="image">
+		<img th:src="@{/images/グー.png}">
+	</label>
+	<input id="tyoki" type="radio" name="selectedHand" value="1" th:checked="*{selectedHand == 1}">
+	<label for="tyoki">
+		<img th:src="@{/images/チョキ.png}">
+	</label>
+	<input id="pa-" type="radio" name="selectedHand" value="2" th:checked="*{selectedHand == 2}">
+	<label for="pa-">
+		<img th:src="@{/images/パー.png}">
+	</div>
+	</label>
+	<div th:if="${#fields.hasErrors('selectedHand')}" th:errors="*{selectedHand}"></div>
+	<br>
+	<div class="formbutton">
+		<button type="submit" class="btn">ぽいっ！</button>
+	</div>
+</form>
+
+</body>
+</html>
